@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentMainPage2">
+    <fragment
+        tools:layout="@layout/fragment_main_page"
+        android:id="@+id/fragmentMainPage2"
+        android:name="edu.mirea.hairloo1x3.sigma.ui.main.mainPage.FragmentMainPage"
+        android:label="FragmentMainPage" />
+    <fragment
+        tools:layout="@layout/fragment_task_menu"
+        android:id="@+id/fragmentTaskMenu2"
+        android:name="edu.mirea.hairloo1x3.sigma.ui.main.task_menu.FragmentTaskMenu"
+        android:label="FragmentTaskMenu" >
+        <action
+            android:id="@+id/action_fragmentTaskMenu2_to_listTasksFragment"
+            app:destination="@id/listTasksFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_profile"
+        android:id="@+id/fragmentProfile2"
+        android:name="edu.mirea.hairloo1x3.sigma.ui.main.profile.FragmentProfile"
+        android:label="FragmentProfile" >
+        <action
+            android:id="@+id/action_fragmentProfile2_to_fragmentMainPage23"
+            app:destination="@id/fragmentMainPage2" />
+    </fragment>
+    <fragment
+        android:id="@+id/listTasksFragment"
+        tools:layout="@layout/list_tasks_fragment"
+        android:name="edu.mirea.hairloo1x3.sigma.ui.main.task_menu.recyclerviewtasks.ListTasksFragment"
+        android:label="ListTasksFragment" >
+        <action
+            android:id="@+id/action_listTasksFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskFragment"
+        tools:layout="@layout/task_fragment"
+        android:name="edu.mirea.hairloo1x3.sigma.ui.main.task_menu.recyclerviewtasks.task.TaskFragment"
+        android:label="TaskFragment" />
+</navigation>
