@@ -8,7 +8,15 @@
         tools:layout="@layout/fragment_main_page"
         android:id="@+id/fragmentMainPage2"
         android:name="edu.mirea.hairloo1x3.sigma.ui.main.mainPage.FragmentMainPage"
-        android:label="FragmentMainPage" />
+        android:label="FragmentMainPage" >
+        <action
+            android:id="@+id/action_fragmentMainPage2_to_fragmentProfile2"
+            app:popUpToSaveState="true"
+            app:destination="@id/fragmentProfile2" />
+        <action
+            android:id="@+id/action_fragmentMainPage2_to_taskFragment"
+            app:destination="@id/taskFragment" />
+    </fragment>
     <fragment
         tools:layout="@layout/fragment_task_menu"
         android:id="@+id/fragmentTaskMenu2"
@@ -16,7 +24,12 @@
         android:label="FragmentTaskMenu" >
         <action
             android:id="@+id/action_fragmentTaskMenu2_to_listTasksFragment"
-            app:destination="@id/listTasksFragment" />
+            app:destination="@id/listTasksFragment"
+            />
+        <action
+            android:id="@+id/action_fragmentTaskMenu2_to_fragmentProfile2"
+            app:popUpToSaveState="true"
+            app:destination="@id/fragmentProfile2" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_profile"
@@ -25,6 +38,7 @@
         android:label="FragmentProfile" >
         <action
             android:id="@+id/action_fragmentProfile2_to_fragmentMainPage23"
+
             app:destination="@id/fragmentMainPage2" />
     </fragment>
     <fragment
@@ -34,11 +48,21 @@
         android:label="ListTasksFragment" >
         <action
             android:id="@+id/action_listTasksFragment_to_taskFragment"
+
             app:destination="@id/taskFragment" />
+        <action
+            android:id="@+id/action_listTasksFragment_to_fragmentProfile2"
+            app:popUpToSaveState="true"
+            app:destination="@id/fragmentProfile2" />
     </fragment>
     <fragment
         android:id="@+id/taskFragment"
         tools:layout="@layout/task_fragment"
         android:name="edu.mirea.hairloo1x3.sigma.ui.main.task_menu.recyclerviewtasks.task.TaskFragment"
-        android:label="TaskFragment" />
+        android:label="TaskFragment" >
+        <action
+            android:id="@+id/action_taskFragment_to_fragmentProfile2"
+            app:popUpToSaveState="true"
+            app:destination="@id/fragmentProfile2" />
+    </fragment>
 </navigation>

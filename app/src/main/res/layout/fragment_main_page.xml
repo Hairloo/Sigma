@@ -61,12 +61,14 @@
                     android:gravity="bottom"
                     android:clickable="true"
                     >
+
                     <View
-                        android:clickable="true"
+                        android:id="@+id/profile_icon"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal"
                         android:background="@drawable/grey_shape"
-                        android:layout_gravity="center_horizontal"/>
+                        android:clickable="true" />
 
                 </LinearLayout>
                 <LinearLayout
@@ -96,8 +98,8 @@
         app:layout_constraintTop_toBottomOf="@id/upper_nav_main_page"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="1dp"
-        android:layout_marginStart="1dp"
+        android:layout_marginEnd="0.5dp"
+        android:layout_marginStart="0.5dp"
         android:layout_width="match_parent"
         android:layout_height="210dp"
         android:orientation="horizontal"
@@ -133,11 +135,12 @@
 
                 >
                 <TextView
+                    android:id="@+id/citate"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:text="Это та самая цитата"
+                    android:text="Математика - это язык, на которо мнаписана книга природы."
                     android:textColor="@color/blue"
                     android:textSize="13sp"/>
             </LinearLayout>
@@ -153,19 +156,21 @@
                 android:weightSum="2"
                 >
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:id="@+id/author"
+                    android:layout_width="match_parent"
+                    android:textAlignment="textEnd"
                     android:layout_height="match_parent"
-                    android:text="Автор"
-                    android:layout_marginEnd="5dp"
+                    android:text="Галилео Галилей"
+                    android:layout_marginEnd="10dp"
                     android:textColor="@color/dark_blue"
                     android:textSize="13sp"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/daily_task"
             android:background="@drawable/rounded_space_for_main_cards"
-            android:layout_width="0dp"
             android:clickable="true"
+            android:layout_width="0dp"
             android:layout_weight="224"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -175,6 +180,7 @@
                 android:orientation="vertical"
                 >
                 <TextView
+                    android:id="@+id/some_text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textAlignment="center"
@@ -194,11 +200,12 @@
 
                 >
                 <TextView
+                    android:id="@+id/some_text_2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:text="Это та самая цитата"
+                    android:text="Последовательности"
                     android:textColor="@color/blue"
                     android:textSize="13sp"/>
             </LinearLayout>
@@ -214,24 +221,27 @@
                     android:orientation="vertical"
                     android:gravity="center_horizontal"
                     android:layout_height="match_parent">
+
                     <TextView
+                        android:id="@+id/some_text_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:text="DIF"
-                        android:textSize="14sp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
+                        android:text="СЛОЖНОСТЬ"
+                        android:textAlignment="center"
                         android:textColor="@color/dark_blue"
-                        />
+                        android:textSize="14sp" />
+
                     <TextView
+                        android:id="@+id/to_swap_text_on_main"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
 
                         android:textSize="25sp"
-                        android:text="H"
-                        android:textColor="@color/red"/>
+                        android:text="E"
+                        android:textColor="@color/lime"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -251,6 +261,7 @@
                         android:textColor="@color/dark_blue"
                         />
                     <ImageView
+                        android:id="@+id/to_swap_logo_on_daily"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/function_b"/>
@@ -280,6 +291,7 @@
                 android:layout_height="70dp"
                 android:background="@drawable/grey_shape"/>
             <TextView
+                android:id="@+id/progress1text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -300,6 +312,7 @@
                 android:background="@drawable/right_arrow_blue"
                 />
             <TextView
+                android:id="@+id/progress_text_main"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="100/1000"
@@ -318,6 +331,7 @@
                 android:layout_height="70dp"
                 android:background="@drawable/grey_shape"/>
             <TextView
+                android:id="@+id/progress2text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -327,33 +341,44 @@
         </LinearLayout>
 
     </LinearLayout>
-    <RelativeLayout
+<!--    <RelativeLayout-->
+<!--        app:layout_constraintTop_toBottomOf="@id/progress"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_gravity="center">-->
+<!--        <View-->
+<!--            android:layout_width="320dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:background="@drawable/progress_bar_grey"-->
+<!--            android:layout_gravity="start">-->
+
+<!--        </View>-->
+<!--        <View-->
+<!--            android:id="@+id/progress_fill"-->
+<!--            android:layout_width="160dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:background="@drawable/progress_bar_lime"-->
+<!--            android:layout_gravity="start">-->
+
+<!--        </View>-->
+<!--    </RelativeLayout>-->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:progressDrawable="@drawable/custom_progress_bg"
         app:layout_constraintTop_toBottomOf="@id/progress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_marginTop="20dp"
-        android:layout_gravity="center">
-        <View
-            android:layout_width="320dp"
-            android:layout_height="40dp"
-            android:background="@drawable/progress_bar_grey"
-            android:layout_gravity="start">
-
-        </View>
-        <View
-            android:layout_width="160dp"
-            android:layout_height="40dp"
-            android:background="@drawable/progress_bar_lime"
-            android:layout_gravity="start">
-
-        </View>
-    </RelativeLayout>
+        android:layout_width="320dp"
+        android:layout_height="40dp"/>
     <Space
         android:id="@+id/space"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

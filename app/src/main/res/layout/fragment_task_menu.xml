@@ -12,7 +12,7 @@
         app:layout_constraintEnd_toEndOf="parent">
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
-
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -55,6 +55,7 @@
                     android:clickable="true"
                     >
                     <View
+                        android:id="@+id/profile_icon"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@drawable/grey_shape"
@@ -118,7 +119,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/sum"/>
+                android:background="@drawable/mathematic"/>
             <TextView
                 android:id="@+id/text1_intaskmenu"
                 android:layout_width="match_parent"
@@ -150,7 +151,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/sum"/>
+                android:background="@drawable/function"/>
             <TextView
                 android:id="@+id/text2_intaskmenu"
                 android:layout_width="match_parent"
@@ -182,7 +183,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/sum"/>
+                android:background="@drawable/stats"/>
             <TextView
                 android:id="@+id/text3_intaskmenu"
                 android:layout_width="match_parent"
@@ -215,7 +216,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/sum"/>
+                android:background="@drawable/logical_thinking"/>
             <TextView
                 android:id="@+id/text4_intaskmenu"
                 android:layout_width="match_parent"
@@ -246,7 +247,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/sum"/>
+                android:background="@drawable/geometry"/>
             <TextView
                 android:id="@+id/text5_intaskmenu"
                 android:layout_width="match_parent"
@@ -277,7 +278,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/sum"/>
+                android:background="@drawable/dice"/>
             <TextView
                 android:id="@+id/text6_intaskmenu"
                 android:layout_width="match_parent"
@@ -292,7 +293,7 @@
     <Space
         android:id="@+id/space"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

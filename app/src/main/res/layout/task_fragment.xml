@@ -54,6 +54,7 @@
                     android:clickable="true"
                     >
                     <View
+                        android:id="@+id/profile_icon"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@drawable/grey_shape"
@@ -70,6 +71,7 @@
 
                     >
                     <ImageView
+                        android:id="@+id/to_swap_logo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/sum_upper"
@@ -116,7 +118,10 @@
             app:layout_constraintTop_toTopOf="@id/answer"
             app:layout_constraintStart_toEndOf="@id/answer"
             android:layout_marginStart="21dp"
-            android:background="@drawable/paper_plane"/>
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/answer"
+            android:src="@drawable/paper_plane"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -191,7 +196,7 @@
     <Space
         android:id="@+id/space"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

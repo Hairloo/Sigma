@@ -5,73 +5,98 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import org.checkerframework.common.aliasing.qual.Unique;
+
 @Entity(tableName = "tasks_table")
 public class TaskEntity {
-    @PrimaryKey(autoGenerate = true)
-    public int id;
-
-    @ColumnInfo(name = "task_name")
-    private String taskName;
-    private String taskDescription;
-    private String taskSource;
-    private String taskStatus;
-    private String taskSection;
-    private String taskDif;
+    @PrimaryKey(autoGenerate = false)
+    private int id;
+    @ColumnInfo
+    private String task_name;
+    @ColumnInfo
+    private String task_description;
+    @ColumnInfo
+    private String task_source;
+    @ColumnInfo
+    private String task_status = "N";
+    @ColumnInfo
+    private String task_section;
+    @ColumnInfo
+    private String task_dif;
+    @ColumnInfo
+    private String answer;
     public TaskEntity(){}
-    public TaskEntity(@NonNull String taskName, @NonNull String taskDescription, @NonNull String taskSection, @NonNull String taskStatus, @NonNull String taskSource, @NonNull String taskDif){
-        this.taskName = taskName;
-        this.taskDescription = taskDescription;
-        this.taskSection = taskSection;
-        this.taskStatus = taskStatus;
-        this.taskSource = taskSource;
-        this.taskDif = taskDif;
-    }
-    @NonNull
-    public String getTaskName() {
-        return taskName;
+    public TaskEntity(int id, @NonNull String task_name, @NonNull String task_description, @NonNull String task_section, @NonNull String task_source, @NonNull String task_dif, @NonNull String answer){
+        this.id = id;
+        this.task_name = task_name;
+        this.task_description = task_description;
+        this.task_section = task_section;
+        this.task_source = task_source;
+        this.task_dif = task_dif;
+        this.answer = answer;
     }
 
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
+    public String getAnswer() {
+        return answer;
     }
 
-    public String getTaskDescription() {
-        return taskDescription;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
-    public void setTaskDescription(String taskDescription) {
-        this.taskDescription = taskDescription;
+    public int getId() {
+        return id;
     }
 
-    public String getTaskDif() {
-        return taskDif;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setTaskDif(String taskDif) {
-        this.taskDif = taskDif;
+    public String getTask_name() {
+        return task_name;
     }
 
-    public String getTaskSource() {
-        return taskSource;
+    public void setTask_name(String task_name) {
+        this.task_name = task_name;
     }
 
-    public void setTaskSource(String taskSource) {
-        this.taskSource = taskSource;
+    public String getTask_description() {
+        return task_description;
     }
 
-    public String getTaskStatus() {
-        return taskStatus;
+    public void setTask_description(String task_description) {
+        this.task_description = task_description;
     }
 
-    public void setTaskStatus(String taskStatus) {
-        this.taskStatus = taskStatus;
+    public String getTask_source() {
+        return task_source;
     }
 
-    public String getTaskSection() {
-        return taskSection;
+    public void setTask_source(String task_source) {
+        this.task_source = task_source;
     }
 
-    public void setTaskSection(String taskSection) {
-        this.taskSection = taskSection;
+    public String getTask_status() {
+        return task_status;
+    }
+
+    public void setTask_status(String task_status) {
+        this.task_status = task_status;
+    }
+
+    public String getTask_section() {
+        return task_section;
+    }
+
+    public void setTask_section(String task_section) {
+        this.task_section = task_section;
+    }
+
+    public String getTask_dif() {
+        return task_dif;
+    }
+
+    public void setTask_dif(String task_dif) {
+        this.task_dif = task_dif;
     }
 }

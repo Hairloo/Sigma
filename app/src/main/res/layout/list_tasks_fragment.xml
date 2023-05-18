@@ -57,6 +57,7 @@
                     android:clickable="true"
                     >
                     <View
+                        android:id="@+id/profile_icon"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@drawable/grey_shape"
@@ -73,6 +74,7 @@
 
                     >
                     <ImageView
+                        android:id="@+id/to_swap_logo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/sum_upper"
@@ -108,12 +110,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="НАЗВАНИЕ"
+
+            android:textAlignment="center"
             android:textColor="@color/blue"
-            android:textSize="20sp"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            tools:layout_editor_absoluteX="72dp" />
+            />
 
         <TextView
             app:layout_constraintEnd_toEndOf="parent"
@@ -121,14 +124,13 @@
             android:id="@+id/task_dif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DIF"
+            android:text="СЛОЖНОСТЬ"
             android:textColor="@color/blue"
             android:layout_marginStart="20dp"
-            android:textSize="20sp"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            tools:layout_editor_absoluteX="238dp" />
+            />
 
         <TextView
             android:layout_marginEnd="20dp"
@@ -138,11 +140,10 @@
             android:layout_height="wrap_content"
             android:text="СТАТУС"
             android:textColor="@color/blue"
-            android:textSize="20sp"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            tools:layout_editor_absoluteX="331dp" />
+            />
 
         <View
             
@@ -168,7 +169,7 @@
     <Space
         android:id="@+id/space"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

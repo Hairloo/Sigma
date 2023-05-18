@@ -1,6 +1,7 @@
 package edu.mirea.hairloo1x3.sigma.data.models;
 
 public class Task {
+    private int id;
     private String description, section, source, status, name, dif;
     public Task(String name, String description, String section, String status, String source, String dif){
         this.name = name;

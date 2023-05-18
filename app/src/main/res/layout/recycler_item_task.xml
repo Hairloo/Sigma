@@ -16,13 +16,14 @@
         android:id="@+id/task_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="НАЗВАНИЕ"
+        app:layout_constraintEnd_toStartOf="@id/task_dif"
+        android:text="NAME"
         android:textColor="@color/blue"
-        android:textSize="20sp"
+        android:textSize="12sp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="72dp" />
+        />
 
     <TextView
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,8 +37,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="238dp" />
+        />
 
     <TextView
         android:layout_marginEnd="40dp"
@@ -50,20 +50,14 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="331dp" />
+        />
 
     <View
-
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="60dp"
-
         android:background="@color/blue"
-
-        app:layout_constraintHorizontal_bias="0.0"
-
         app:layout_constraintBottom_toBottomOf="parent" />
 
 

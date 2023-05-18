@@ -15,7 +15,7 @@
 
         >
         <TextView
-            android:layout_marginTop="93dp"
+            android:layout_marginTop="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
@@ -24,6 +24,7 @@
             android:letterSpacing="0.05"
             android:text="SIGMA"/>
         <TextView
+            android:id="@+id/for_swap"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:textSize="30sp"
@@ -38,8 +39,24 @@
             android:layout_height="wrap_content"
             android:background="@drawable/sum"/>
         <EditText
+            android:layout_marginTop="48dp"
+            android:id="@+id/email_reg"
             android:cursorVisible="false"
-            android:layout_marginTop="50dp"
+            android:hint="EMAIL"
+            android:inputType="textEmailAddress"
+            android:textAllCaps="true"
+            android:textColorHint="@color/blue"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="18sp"
+            android:layout_width="250dp"
+            android:letterSpacing="0.05"
+            android:layout_height="57dp"
+            android:background="@drawable/rounded_edit_text"
+            />
+        <EditText
+            android:cursorVisible="false"
+            android:layout_marginTop="30dp"
             android:id="@+id/nickname_reg"
             android:layout_width="250dp"
             android:textAlignment="center"
@@ -52,7 +69,7 @@
             android:background="@drawable/rounded_edit_text"
             />
         <EditText
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="30dp"
             android:id="@+id/pass_reg"
             android:cursorVisible="false"
             android:hint="PASSWORD"
@@ -67,6 +84,17 @@
             android:layout_height="57dp"
             android:background="@drawable/rounded_edit_text"
             />
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:id="@+id/swap"
+                android:text="Log in"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:clickable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
     </LinearLayout>
