@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "701076174577",
+    "project_id": "sigma-6c00a",
+    "storage_bucket": "sigma-6c00a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701076174577:android:bc71d6c8176003e08a1b50",
+        "android_client_info": {
+          "package_name": "edu.mirea.hairloo1x3.sigma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "701076174577-93hgjq88blhff41ioht5j3g13c905frl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANr-T8oTitx08xjsxw4B95o04E-40Ci58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "701076174577-93hgjq88blhff41ioht5j3g13c905frl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
