@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -44,17 +45,26 @@ public class FragmentMainPage extends Fragment  {
         viewModel = new ViewModelProvider(this).get(FragmentMainPageViewModel.class);
         databaseReference = FirebaseDatabase.getInstance().getReference("Tasks").child("Citates");
         citates = new ArrayList<>();
-        user = viewModel.getUser();
+        user = viewModel.getUser2();
         Log.d("User", " " + user.getPoints());
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String [] a = viewModel.retSetText();
-        binding.progressTextMain.setText(a[0] + "/" +  a[1]);
-        binding.progress1text.setText(a[2]);
-        binding.progress2text.setText(a[3]);
+        viewModel.getUser().observe(getViewLifecycleOwner(), new Observer<UserEntitie>() {
+            @Override
+            public void onChanged(UserEntitie userEntitie) {
+                Log.d("User", "Change");
+                user = userEntitie;
+                viewModel.setUser(userEntitie);
+                Log.d("User", " " + userEntitie.getPoints());
+                bind();
+
+            }
+        });
+
+
 //        binding.dailyTask.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -67,9 +77,6 @@ public class FragmentMainPage extends Fragment  {
                 onIconClick();
             }
         });
-        binding.progressBar.setMax(Integer.parseInt(a[1]));
-        int curProgress = Integer.parseInt(a[0]);
-        ObjectAnimator.ofInt(binding.progressBar, "progress", curProgress).setDuration(1000).start();
         getCitates();
         //Log.d("myLogs", " " + citates.size());
     }
@@ -114,5 +121,18 @@ public class FragmentMainPage extends Fragment  {
     public void onCardClick(){
         NavHostFragment.findNavController(this).navigate(R.id.action_fragmentMainPage2_to_taskFragment);
     }
+    private void bind(){
+        String [] a = viewModel.retSetText();
+        binding.progressTextMain.setText(a[0] + "/" +  a[1]);
+        binding.progress1text.setText(a[2]);
+        binding.progress2text.setText(a[3]);
+        binding.profileIcon.setImageResource(viewModel.iconToRet(a[2]));
+        binding.progressIcon1.setImageResource(viewModel.iconToRet(a[2]));
+        binding.progressIcon2.setImageResource(viewModel.iconToRet(a[3]));
+        binding.progressBar.setMax(Integer.parseInt(a[1]));
+        int curProgress = Integer.parseInt(a[0]);
+        ObjectAnimator.ofInt(binding.progressBar, "progress", curProgress).setDuration(1000).start();
+    }
+
 
 }

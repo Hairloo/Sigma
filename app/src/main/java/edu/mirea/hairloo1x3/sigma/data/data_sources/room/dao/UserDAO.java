@@ -30,6 +30,11 @@ public interface UserDAO {
     UserEntitie findTaskById(int id);
 
     @Query("SELECT * FROM user_database")
+    LiveData<UserEntitie> getUser2();
+
+    @Query("SELECT * FROM user_database")
     UserEntitie getUser();
+
+
 
 }

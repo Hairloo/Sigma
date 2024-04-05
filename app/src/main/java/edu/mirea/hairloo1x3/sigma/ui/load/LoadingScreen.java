@@ -33,9 +33,11 @@ public class LoadingScreen extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        viewModel.readDataFromDB();
+        viewModel.user();
         viewModel.load();
         viewModel.getLiveData().observe(getViewLifecycleOwner(), b-> {
-            NavHostFragment.findNavController(this).navigate(R.id.action_loadingScreen_to_registrationFragment);
+            NavHostFragment.findNavController(this).navigate(R.id.action_loadingScreen_to_mainFragment2);
         });
     }
 }

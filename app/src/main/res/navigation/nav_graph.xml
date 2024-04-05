@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_fragmentMainPage2_to_taskFragment"
             app:destination="@id/taskFragment" />
+        <action
+            android:id="@+id/action_fragmentMainPage2_to_fragmentTaskMenu2"
+            app:destination="@id/fragmentTaskMenu2" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_task_menu"
@@ -30,6 +33,9 @@
             android:id="@+id/action_fragmentTaskMenu2_to_fragmentProfile2"
             app:popUpToSaveState="true"
             app:destination="@id/fragmentProfile2" />
+        <action
+            android:id="@+id/action_fragmentTaskMenu2_to_fragmentMainPage2"
+            app:destination="@id/fragmentMainPage2" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_profile"
@@ -40,6 +46,12 @@
             android:id="@+id/action_fragmentProfile2_to_fragmentMainPage23"
 
             app:destination="@id/fragmentMainPage2" />
+        <action
+            android:id="@+id/action_fragmentProfile2_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_fragmentProfile2_to_enterFragment"
+            app:destination="@id/enterFragment" />
     </fragment>
     <fragment
         android:id="@+id/listTasksFragment"
@@ -65,4 +77,14 @@
             app:popUpToSaveState="true"
             app:destination="@id/fragmentProfile2" />
     </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        tools:layout="@layout/fragment_registration"
+        android:name="edu.mirea.hairloo1x3.sigma.ui.registration.RegistrationFragment"
+        android:label="RegistrationFragment" />
+    <fragment
+        tools:layout="@layout/fragment_enter"
+        android:id="@+id/enterFragment"
+        android:name="edu.mirea.hairloo1x3.sigma.ui.registration.EnterFragment"
+        android:label="EnterFragment" />
 </navigation>

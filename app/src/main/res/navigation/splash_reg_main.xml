@@ -6,17 +6,6 @@
     app:startDestination="@id/loadingScreen">
 
     <fragment
-        android:id="@+id/registrationFragment"
-        tools:layout="@layout/fragment_registration"
-        android:name="edu.mirea.hairloo1x3.sigma.ui.registration.RegistrationFragment"
-        android:label="RegistrationFragment" >
-        <action
-            android:id="@+id/action_registrationFragment_to_mainFragment"
-            app:destination="@id/mainFragment"
-            app:popUpTo="@+id/splash_reg_main"
-            app:popUpToInclusive="true"/>
-    </fragment>
-    <fragment
         android:id="@+id/mainFragment"
         android:name="edu.mirea.hairloo1x3.sigma.ui.main.MainFragment"
         android:label="fragment_main_screen"
@@ -27,7 +16,9 @@
         android:name="edu.mirea.hairloo1x3.sigma.ui.load.LoadingScreen"
         android:label="LoadingScreen" >
         <action
-            android:id="@+id/action_loadingScreen_to_registrationFragment"
-            app:destination="@id/registrationFragment" />
+            app:popUpTo="@+id/loadingScreen"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_loadingScreen_to_mainFragment2"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -19,7 +20,7 @@ import edu.mirea.hairloo1x3.sigma.data.models.Task;
 
 public class ListTasksViewHolder extends RecyclerView.ViewHolder {
     private final TextView name;
-    private final TextView status;
+    private final ImageView status;
     private final TextView dif;
     public static List<TaskEntity> list = new ArrayList<>();
     private ListTasksViewHolder(View itemView, RecInterface recInterface) {
@@ -44,13 +45,16 @@ public class ListTasksViewHolder extends RecyclerView.ViewHolder {
         list.add(taskEntity);
         switch(taskEntity.getTask_status().toUpperCase()){
             case "N":
-                this.status.setTextColor(Color.parseColor("#D9D9D9"));
+                this.status.setBackgroundResource(R.drawable.minus);
+                //this.status.setTextColor(Color.parseColor("#D9D9D9"));
                 break;
             case "C":
-                this.status.setTextColor(Color.parseColor("#19EC00"));
+                this.status.setBackgroundResource(R.drawable.check);
+                //this.status.setTextColor(Color.parseColor("#19EC00"));
                 break;
             case "F":
-                this.status.setTextColor(Color.parseColor("#FF1100"));
+                this.status.setBackgroundResource(R.drawable.reject);
+                //this.status.setTextColor(Color.parseColor("#FF1100"));
                 break;
         }
         switch(taskEntity.getTask_dif().toUpperCase()){
@@ -65,7 +69,7 @@ public class ListTasksViewHolder extends RecyclerView.ViewHolder {
                 break;
         }
         this.name.setText(taskEntity.getTask_name().toUpperCase());
-        this.status.setText(taskEntity.getTask_status());
+        //this.status.setText(taskEntity.getTask_status());
         this.dif.setText(taskEntity.getTask_dif().toUpperCase());
     }
 

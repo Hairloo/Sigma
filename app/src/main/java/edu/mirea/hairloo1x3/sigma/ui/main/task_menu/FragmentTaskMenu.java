@@ -8,11 +8,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import edu.mirea.hairloo1x3.sigma.R;
+import edu.mirea.hairloo1x3.sigma.data.data_sources.room.entities.UserEntitie;
 import edu.mirea.hairloo1x3.sigma.databinding.FragmentProfileBinding;
 import edu.mirea.hairloo1x3.sigma.databinding.FragmentTaskMenuBinding;
 import edu.mirea.hairloo1x3.sigma.ui.main.profile.FragmentProfileViewModel;
@@ -22,11 +24,12 @@ import edu.mirea.hairloo1x3.sigma.ui.main.task_menu.recyclerviewtasks.ListTasksF
 public class FragmentTaskMenu extends Fragment {
     FragmentTaskMenuBinding binding;
     FragmentTaskMenuViewModel viewModel;
-
+    private UserEntitie user;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this).get(FragmentTaskMenuViewModel.class);
+        user = viewModel.getUser2();
     }
 
     @Nullable
@@ -71,7 +74,24 @@ public class FragmentTaskMenu extends Fragment {
         });
         return binding.getRoot();
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        viewModel.getUser().observe(getViewLifecycleOwner(), new Observer<UserEntitie>() {
+            @Override
+            public void onChanged(UserEntitie userEntitie) {
+                user = userEntitie;
+                viewModel.setUser(userEntitie);
+                bind();
+            }
+        });
+    }
+
     public void onIconClick(){
         NavHostFragment.findNavController(this).navigate(R.id.action_fragmentTaskMenu2_to_fragmentProfile2);
+    }
+    private void bind(){
+        binding.profileIcon.setImageResource(viewModel.iconToRet(viewModel.retSetText()[2]));
     }
 }

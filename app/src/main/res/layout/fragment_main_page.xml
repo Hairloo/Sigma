@@ -46,8 +46,8 @@
 
                     <ImageView
                         android:id="@+id/main_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
                         android:background="@drawable/sum_upper" />
 
                 </LinearLayout>
@@ -62,13 +62,14 @@
                     android:clickable="true"
                     >
 
-                    <View
+                    <ImageButton
                         android:id="@+id/profile_icon"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:src="@drawable/student"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/grey_shape"
-                        android:clickable="true" />
+                        android:background="@drawable/icond_back"
+                         />
 
                 </LinearLayout>
                 <LinearLayout
@@ -88,7 +89,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/blue"
+                android:background="@color/white"
                 />
 
         </LinearLayout>
@@ -140,7 +141,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:text="Математика - это язык, на которо мнаписана книга природы."
+                    android:text="Математика - это язык, на котором написана книга природы."
                     android:textColor="@color/blue"
                     android:textSize="13sp"/>
             </LinearLayout>
@@ -286,10 +287,11 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_height="wrap_content">
-            <View
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/grey_shape"/>
+            <ImageView
+                android:id="@+id/progress_icon1"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/icond_back"/>
             <TextView
                 android:id="@+id/progress1text"
                 android:layout_width="match_parent"
@@ -326,10 +328,11 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_height="wrap_content">
-            <View
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/grey_shape"/>
+            <ImageView
+                android:id="@+id/progress_icon2"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/icond_back"/>
             <TextView
                 android:id="@+id/progress2text"
                 android:layout_width="match_parent"

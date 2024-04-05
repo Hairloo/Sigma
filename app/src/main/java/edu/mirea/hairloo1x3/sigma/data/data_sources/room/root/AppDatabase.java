@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 import edu.mirea.hairloo1x3.sigma.data.data_sources.room.dao.TaskDAO;
 import edu.mirea.hairloo1x3.sigma.data.data_sources.room.entities.TaskEntity;
 
-@Database(entities = {TaskEntity.class}, version = 1, exportSchema = false)
+@Database(entities = {TaskEntity.class}, version = 2, exportSchema = true)
 public abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase INSTANCE;
 
@@ -27,7 +27,7 @@ public abstract class AppDatabase extends RoomDatabase {
         if(INSTANCE == null){
             synchronized (AppDatabase.class){
                 if(INSTANCE == null){
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "tasks_database").fallbackToDestructiveMigrationFrom().allowMainThreadQueries().build();
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "tasks_database").allowMainThreadQueries().fallbackToDestructiveMigration().build();
                 }
             }
         }

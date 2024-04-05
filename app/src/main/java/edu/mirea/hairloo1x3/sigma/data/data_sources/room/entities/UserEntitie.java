@@ -18,9 +18,9 @@ public class UserEntitie {
     @ColumnInfo
     private String login;
     @ColumnInfo
-    private List<Integer> idsFalse;
+    private List<Integer> idsFalse = new ArrayList<>();
     @ColumnInfo
-    private List<Integer> idsCompleted;
+    private List<Integer> idsCompleted = new ArrayList<>();
     @ColumnInfo
     private int points;
     public UserEntitie(){}
@@ -36,8 +36,6 @@ public class UserEntitie {
     public UserEntitie(int id) {
         this.id = id;
         points = 0;
-        idsFalse = new ArrayList<>();
-        idsCompleted = new ArrayList<>();
     }
 
     public int getId() {

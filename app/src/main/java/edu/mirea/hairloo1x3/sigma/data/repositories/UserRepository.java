@@ -28,13 +28,20 @@ public class UserRepository {
             mUserDao.insert(user);
         });
     }
+    public LiveData<UserEntitie> getUser2(){
+       return mUserDao.getUser2();
+    }
     public UserEntitie getUser(){
-       return mUserDao.getUser();
+        return mUserDao.getUser();
     }
 
     public void updateUser(UserEntitie user){
         mUserDao.updateUser(user);
     }
+    public void deleteUser(){
+        mUserDao.deleteAll();
+    }
+
 
 //    public void insert(TaskEntity task) {
 //        AppDatabase.databaseWriteExecutor.execute(() -> {

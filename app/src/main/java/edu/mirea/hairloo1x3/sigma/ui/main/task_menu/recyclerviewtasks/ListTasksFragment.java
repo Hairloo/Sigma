@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,6 +30,7 @@ import java.util.List;
 import edu.mirea.hairloo1x3.sigma.R;
 import edu.mirea.hairloo1x3.sigma.data.data_sources.room.dao.TaskDAO;
 import edu.mirea.hairloo1x3.sigma.data.data_sources.room.entities.TaskEntity;
+import edu.mirea.hairloo1x3.sigma.data.data_sources.room.entities.UserEntitie;
 import edu.mirea.hairloo1x3.sigma.data.models.Task;
 import edu.mirea.hairloo1x3.sigma.data.repositories.TasksRepository;
 import edu.mirea.hairloo1x3.sigma.databinding.ListTasksFragmentBinding;
@@ -39,6 +41,7 @@ public class ListTasksFragment extends Fragment implements RecInterface{
     private ListTasksFragmentBinding binding;
     private ListTasksFragmentViewModel viewModel;
     private ListTasksAdapter adapter;
+    private UserEntitie user;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     String razdel;
@@ -47,12 +50,21 @@ public class ListTasksFragment extends Fragment implements RecInterface{
         super.onCreate(savedInstanceState);
         databaseReference = FirebaseDatabase.getInstance().getReference("Tasks").child("FirstTask");
         viewModel = new ViewModelProvider(this).get(ListTasksFragmentViewModel.class);
+        user = viewModel.getUser2();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = ListTasksFragmentBinding.inflate(inflater);
+        viewModel.getUser().observe(getViewLifecycleOwner(), new Observer<UserEntitie>() {
+            @Override
+            public void onChanged(UserEntitie userEntitie) {
+                user = userEntitie;
+                viewModel.setUser(user);
+                bind();
+            }
+        });
         binding.profileIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,64 +95,55 @@ public class ListTasksFragment extends Fragment implements RecInterface{
         RecyclerView recyclerView = binding.listTasks;
         adapter = new ListTasksAdapter (new ListTasksAdapter.WordDiff(), this);
         recyclerView.setAdapter(adapter);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        readDataFromDB();
+        //readDataFromDB();
 
         //Update from firebase
+
         switch (ListTasksFragmentViewModel.razdel){
             case "Algebra":
                 viewModel.getAlgebraTasks().observe(getViewLifecycleOwner(), words -> {
                     // Update the cached copy of the words in the adapter.
                     adapter.submitList(words);
-                    if(ListTasksViewHolder.list.size() > 0) ListTasksViewHolder.list.clear();
-                    ListTasksViewHolder.list.addAll(adapter.getCurrentList());
-                    //List<TaskEntity> list =
-                    //Log.d("myLogs",  list.toString());
+                    setSortList();
                 });
                 break;
             case "Matan":
                 viewModel.getMatanTasks().observe(getViewLifecycleOwner(), words -> {
                     // Update the cached copy of the words in the adapter.
                     adapter.submitList(words);
-                    if(ListTasksViewHolder.list.size() > 0) ListTasksViewHolder.list.clear();
-                    ListTasksViewHolder.list.addAll(adapter.getCurrentList());
+                    setSortList();
                 });
                 break;
             case "Stats":
                 viewModel.getStatsTasks().observe(getViewLifecycleOwner(), words -> {
                     // Update the cached copy of the words in the adapter.
                     adapter.submitList(words);
-                    if(ListTasksViewHolder.list.size() > 0) ListTasksViewHolder.list.clear();
-                    ListTasksViewHolder.list.addAll(adapter.getCurrentList());
+                    setSortList();
                 });
                 break;
             case "Logic":
                 viewModel.getLogicTasks().observe(getViewLifecycleOwner(), words -> {
                     // Update the cached copy of the words in the adapter.
                     adapter.submitList(words);
-                    if(ListTasksViewHolder.list.size() > 0) ListTasksViewHolder.list.clear();
-                    ListTasksViewHolder.list.addAll(adapter.getCurrentList());
+                    setSortList();
                 });
                 break;
             case "Geometry":
                 viewModel.getGeometryTasks().observe(getViewLifecycleOwner(), words -> {
                     // Update the cached copy of the words in the adapter.
                     adapter.submitList(words);
-                    if(ListTasksViewHolder.list.size() > 0) ListTasksViewHolder.list.clear();
-                    ListTasksViewHolder.list.addAll(adapter.getCurrentList());
+                    setSortList();
                 });
                 break;
             case  "Combination":
                 viewModel.getCombinationTasks().observe(getViewLifecycleOwner(), words -> {
                     // Update the cached copy of the words in the adapter.
                     adapter.submitList(words);
-                    if(ListTasksViewHolder.list.size() > 0) ListTasksViewHolder.list.clear();
-                    ListTasksViewHolder.list.addAll(adapter.getCurrentList());
+                    setSortList();
                 });
                 break;
         }
-
 
         return binding.getRoot();
     }
@@ -189,5 +192,17 @@ public class ListTasksFragment extends Fragment implements RecInterface{
             }
         };
         databaseReference.addValueEventListener(valueEventListener);
+    }
+
+    private void setSortList(){
+        if(ListTasksViewHolder.list.size() > 0) ListTasksViewHolder.list.clear();
+        ListTasksViewHolder.list.addAll(adapter.getCurrentList());
+    }
+    private void setSortList2(List<TaskEntity> list){
+        if(ListTasksViewHolder.list.size() > 0) ListTasksViewHolder.list.clear();
+        ListTasksViewHolder.list.addAll(list);
+    }
+    private void bind(){
+        binding.profileIcon.setImageResource(viewModel.iconToRet(viewModel.retSetText()[2]));
     }
 }

@@ -5,12 +5,15 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+import edu.mirea.hairloo1x3.sigma.R;
 import edu.mirea.hairloo1x3.sigma.data.data_sources.room.entities.UserEntitie;
 import edu.mirea.hairloo1x3.sigma.data.repositories.UserRepository;
 
@@ -18,22 +21,22 @@ public class FragmentMainPageViewModel extends AndroidViewModel {
     private UserRepository userRepository;
     private UserEntitie user;
     private List<String[]> map = new ArrayList<>();
-    String [] setText = new String[4];
+    String[] setText;
     public FragmentMainPageViewModel(@NonNull Application application){
         super(application);
         userRepository = new UserRepository(application);
         map.add(new String[]{"Студент", "0"});
         map.add(new String[]{"Препод", "1000"});
         map.add(new String[]{"Гаусс", "5000"});
-        map.add(new String[]{"Лобачевский", "10000"});
-        map.add(new String[]{"Декарт", "20000"});
-        map.add(new String[]{"Галуа", "30000"});
+        map.add(new String[]{"Эйнштейн", "10000"});
+        map.add(new String[]{"Пифагор", "20000"});
+        map.add(new String[]{"Ньютон", "30000"});
         levels();
-        setText = toSetText();
+
     }
 
-    public UserEntitie getUser() {
-        return userRepository.getUser();
+    public LiveData<UserEntitie> getUser() {
+        return userRepository.getUser2();
     }
     private void levels(){
         map.sort(new Comparator<String[]>() {
@@ -44,8 +47,8 @@ public class FragmentMainPageViewModel extends AndroidViewModel {
         });
     }
     private String [] toSetText(){
-        String[] returnStrings = new String[4];
-        int points = getUser().getPoints();
+        String [] returnStrings = new String[4];
+        int points = user.getPoints();
         Log.d("Array", Arrays.toString(returnStrings));
         for(int i = 0; i < map.size(); i++){
             if(points >= Integer.parseInt(map.get(i)[1])){
@@ -60,5 +63,31 @@ public class FragmentMainPageViewModel extends AndroidViewModel {
     }
     public String[] retSetText(){
         return setText;
+    }
+    public int iconToRet(String str){
+        switch(str){
+            case "Студент":
+                return R.drawable.student;
+            case "Препод":
+                return R.drawable.prepod;
+            case "Гаусс":
+                return R.drawable.gausss;
+            case "Эйнштейн":
+                return R.drawable.einsteinger;
+            case "Пифагор":
+                return R.drawable.pifagorus;
+            case "Ньютон":
+                return R.drawable.newtone;
+
+        }
+        return 0;
+    }
+
+    public void setUser(UserEntitie user) {
+        this.user = user;
+        setText = toSetText();
+    }
+    public UserEntitie getUser2(){
+        return userRepository.getUser();
     }
 }
